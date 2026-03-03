@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>luzoraa- Keşfet</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f0f2f5;
+        }
+
+        .religion-card {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .religion-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .search-bar-container {
+            transition: width 0.4s ease-in-out;
+            width: 50px;
+            overflow: hidden;
+        }
+
+        .search-bar-container.active {
+            width: 300px;
+        }
+
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+<body class="min-h-screen pb-12">
+
+    <!-- Header / Nav -->
+    <header class="sticky top-0 z-50 glass-effect shadow-sm px-6 py-4 flex justify-between items-center">
+        <h1 class="text-2xl font-bold text-indigo-800">luzoraa</h1>
+        
+        <!-- Arama Kutusu (Büyüteçli) -->
+        <div id="searchWrapper" class="search-bar-container bg-gray-100 rounded-full flex items-center p-2 border border-gray-200">
+            <button id="searchBtn" class="text-gray-500 hover:text-indigo-600 focus:outline-none px-2">
+                <i class="fas fa-search text-xl"></i>
+            </button>
+            <input type="text" id="searchInput" placeholder="Din ara..." 
+                class="bg-transparent border-none focus:ring-0 text-sm ml-2 w-full outline-none">
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <div class="max-w-6xl mx-auto mt-12 px-6 text-center">
+        <h2 class="text-4xl font-extrabold text-gray-800 mb-4">İnançları Keşfedin</h2>
+        <p class="text-gray-600 max-w-2xl mx-auto">İnsanlık tarihine yön veren inanç sistemlerini, öğretilerini ve kültürlerini öğrenmek için aşağıdaki kartlardan birini seçin.</p>
+    </div>
+
+    <!-- Din Kartları Grid -->
+    <div class="max-w-6xl mx-auto mt-12 px-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" id="religionGrid">
+        
+        <!-- Tengricilik -->
+        <div class="religion-card bg-white rounded-2xl overflow-hidden shadow-md flex flex-col" data-name="tengricilik">
+            <div class="h-48 bg-blue-100 flex items-center justify-center relative overflow-hidden">
+                 <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&q=80&w=600" alt="Tengricilik" class="absolute inset-0 w-full h-full object-cover">
+                 <div class="absolute inset-0 bg-black opacity-30"></div>
+                 <span class="relative text-white font-bold text-xl uppercase tracking-widest">Tengricilik</span>
+            </div>
+            <div class="p-6">
+                <p class="text-gray-500 text-sm mb-4">Gök Tanrı inancı ve Türklerin kadim inanç sistemi.</p>
+                <button onclick="window.location.href='https://linkinburaya.com/tengricilik'" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 rounded-xl transition-colors">Keşfet</button>
+            </div>
+        </div>
+
+        <!-- Şamanizm -->
+        <div class="religion-card bg-white rounded-2xl overflow-hidden shadow-md flex flex-col" data-name="şamanizm">
+            <div class="h-48 bg-green-100 flex items-center justify-center relative overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1533154683836-84ea7a0bc310?auto=format&fit=crop&q=80&w=600" alt="Şamanizm" class="absolute inset-0 w-full h-full object-cover">
+                <div class="absolute inset-0 bg-black opacity-30"></div>
+                <span class="relative text-white font-bold text-xl uppercase tracking-widest">Şamanizm</span>
+            </div>
+            <div class="p-6">
+                <p class="text-gray-500 text-sm mb-4">Doğa ruhları ve ruhsal dünyayla kurulan derin bağ.</p>
+                <button onclick="window.location.href='https://linkinburaya.com/samanizm'" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 rounded-xl transition-colors">Keşfet</button>
+            </div>
+        </div>
+
+        <!-- Hristiyanlık -->
+        <div class="religion-card bg-white rounded-2xl overflow-hidden shadow-md flex flex-col" data-name="hristiyanlık">
+            <div class="h-48 bg-red-100 flex items-center justify-center relative overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1438032005730-c779502df39b?auto=format&fit=crop&q=80&w=600" alt="Hristiyanlık" class="absolute inset-0 w-full h-full object-cover">
+                <div class="absolute inset-0 bg-black opacity-30"></div>
+                <span class="relative text-white font-bold text-xl uppercase tracking-widest">Hristiyanlık</span>
+            </div>
+            <div class="p-6">
+                <p class="text-gray-500 text-sm mb-4">Hz. İsa'nın öğretilerine dayanan evrensel bir din.</p>
+                <button onclick="window.location.href='https://linkinburaya.com/hristiyanlik'" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 rounded-xl transition-colors">Keşfet</button>
+            </div>
+        </div>
+
+        <!-- İslamiyet -->
+        <div class="religion-card bg-white rounded-2xl overflow-hidden shadow-md flex flex-col" data-name="islamiyet">
+            <div class="h-48 bg-emerald-100 flex items-center justify-center relative overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?auto=format&fit=crop&q=80&w=600" alt="İslamiyet" class="absolute inset-0 w-full h-full object-cover">
+                <div class="absolute inset-0 bg-black opacity-30"></div>
+                <span class="relative text-white font-bold text-xl uppercase tracking-widest">İslamiyet</span>
+            </div>
+            <div class="p-6">
+                <p class="text-gray-500 text-sm mb-4">Hz. Muhammed'e indirilen son hak din.</p>
+                <button onclick="window.location.href='https://linkinburaya.com/islamiyet'" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 rounded-xl transition-colors">Keşfet</button>
+            </div>
+        </div>
+
+        <!-- Budizm -->
+        <div class="religion-card bg-white rounded-2xl overflow-hidden shadow-md flex flex-col" data-name="budizm">
+            <div class="h-48 bg-yellow-100 flex items-center justify-center relative overflow-hidden">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Large_Gautama_Buddha_statue_in_Buddha_Park_of_Ravangla%2C_Sikkim.jpg/250px-Large_Gautama_Buddha_statue_in_Buddha_Park_of_Ravangla%2C_Sikkim.jpg" alt="Budizm" class="absolute inset-0 w-full h-full object-cover">
+                <div class="absolute inset-0 bg-black opacity-30"></div>
+                <span class="relative text-white font-bold text-xl uppercase tracking-widest">Budizm</span>
+            </div>
+            <div class="p-6">
+                <p class="text-gray-500 text-sm mb-4">İç huzur, aydınlanma ve Nirvana'ya giden yol.</p>
+                <button onclick="window.location.href='https://linkinburaya.com/budizm'" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 rounded-xl transition-colors">Keşfet</button>
+            </div>
+        </div>
+
+        <!-- Yahudilik -->
+        <div class="religion-card bg-white rounded-2xl overflow-hidden shadow-md flex flex-col" data-name="yahudilik">
+            <div class="h-48 bg-blue-200 flex items-center justify-center relative overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1528660493888-ab6f4761e036?auto=format&fit=crop&q=80&w=600" alt="Yahudilik" class="absolute inset-0 w-full h-full object-cover">
+                <div class="absolute inset-0 bg-black opacity-30"></div>
+                <span class="relative text-white font-bold text-xl uppercase tracking-widest">Yahudilik</span>
+            </div>
+            <div class="p-6">
+                <p class="text-gray-500 text-sm mb-4">Tevrat'a ve köklü geleneklere dayanan inanç.</p>
+                <button onclick="window.location.href='https://linkinburaya.com/yahudilik'" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 rounded-xl transition-colors">Keşfet</button>
+            </div>
+        </div>
+
+        <!-- Zerdüştçilik -->
+        <div class="religion-card bg-white rounded-2xl overflow-hidden shadow-md flex flex-col" data-name="zerdüştçilik">
+            <div class="h-48 bg-orange-100 flex items-center justify-center relative overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1543332143-4e8c27e3256f?auto=format&fit=crop&q=80&w=600" alt="Zerdüştçilik" class="absolute inset-0 w-full h-full object-cover">
+                <div class="absolute inset-0 bg-black opacity-30"></div>
+                <span class="relative text-white font-bold text-xl uppercase tracking-widest">Zerdüştçilik</span>
+            </div>
+            <div class="p-6">
+                <p class="text-gray-500 text-sm mb-4">İyilik ve kötülüğün savaşı: Ahura Mazda.</p>
+                <button onclick="window.location.href='https://linkinburaya.com/zerdustculuk'" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 rounded-xl transition-colors">Keşfet</button>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Sonuç Bulunamadı Mesajı -->
+    <div id="noResults" class="hidden text-center mt-12 text-gray-500">
+        <i class="fas fa-search-minus text-4xl mb-4"></i>
+        <p>Aradığınız din bulunamadı.</p>
+    </div>
+
+    <script>
+        // Arama Çubuğu Açma/Kapama
+        const searchBtn = document.getElementById('searchBtn');
+        const searchWrapper = document.getElementById('searchWrapper');
+        const searchInput = document.getElementById('searchInput');
+
+        searchBtn.addEventListener('click', () => {
+            searchWrapper.classList.toggle('active');
+            if (searchWrapper.classList.contains('active')) {
+                searchInput.focus();
+            }
+        });
+
+        // Arama Fonksiyonu
+        searchInput.addEventListener('input', (e) => {
+            const term = e.target.value.toLowerCase().trim();
+            const cards = document.querySelectorAll('.religion-card');
+            let hasResults = false;
+
+            cards.forEach(card => {
+                const name = card.getAttribute('data-name');
+                if (name.includes(term)) {
+                    card.classList.remove('hidden');
+                    hasResults = true;
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+
+            const noResults = document.getElementById('noResults');
+            if (hasResults) {
+                noResults.classList.add('hidden');
+            } else {
+                noResults.classList.remove('hidden');
+            }
+        });
+
+        // Dışarı tıklayınca aramayı kapat
+        document.addEventListener('click', (e) => {
+            if (!searchWrapper.contains(e.target) && searchInput.value === "") {
+                searchWrapper.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
+
